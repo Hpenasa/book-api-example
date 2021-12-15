@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS books(
+    id INTEGER PRIMARY KEY,
+    isbn INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    author TEXT NOT NULL,
+    price FLOAT NOT NULL 
+)

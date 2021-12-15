@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  sqlite3:
+      image: nouchka/sqlite3:latest
+      container_name: Database
+      stdin_open: true
+      tty: true
+      volumes: 
+          - ./db/:/root/db/
+
+
+  web:
+      image: "python:latest"  
+      build: .
+      container_name: WebApp
+      ports:
+          - "5000:4000"
+      environment:
+          - FLASK_ENV=development
+          - FLASK_APP=/app/app.py
+          - DATABASE=/app/sqlite.db
+      volumes:
+          - ./:/app
+             
+          
+  

@@ -1,0 +1,27 @@
+pipeline{
+
+	agent any
+	options {
+		buildDiscarder(logRotator(numToKeepStr: '5'))
+	}
+	
+
+	stages {
+
+			
+		stage('Tooling Version') {
+			steps {
+				sh '''
+				  docker --version
+				  docker compose version
+				'''
+			}
+		}
+	    
+
+
+	}
+}
+
+
+	
